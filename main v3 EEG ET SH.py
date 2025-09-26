@@ -114,7 +114,7 @@ RESULTS = OrderedDict([
 ])
 
 STIMULUS = {
-    'AB': ['むふ', [0.50, 0.50],[0.20, 0.20]],
+    "AB": ['むふ', [0.50, 0.50],[0.20, 0.20]],
     "CD": ['るょ', [0.50, 0.50], [0.80, 0.80]],
     "EF": ['ぽれ', [0.80, 0.20],[0.20, 0.80]],
     "GH": ['ゆぎ', [0.20, 0.80],[0.80, 0.20]]
@@ -801,14 +801,24 @@ async def RunTask():
     await MainLoopTask()
     await MidBreakTask()
 
+    print("\n>>> PHASE 1 - BLOCK 3")
+    await LoadStimulus(phase=1, block=3)
+    await MainLoopTask()
+    await MidBreakTask()
+
     # FASE 2 - Bloques 3 y 4
     print("\n>>> PHASE 2 - BLOCK 1")
     await LoadStimulus(phase=2, block=1)
     await MainLoopTask()
     await BreakTask()
-    
+
     print("\n>>> PHASE 2 - BLOCK 2")
     await LoadStimulus(phase=2, block=2)
+    await MainLoopTask()
+    await BreakTask()
+    
+    print("\n>>> PHASE 2 - BLOCK 3")
+    await LoadStimulus(phase=2, block=3)
     await MainLoopTask()
 
     await QuitTask()
